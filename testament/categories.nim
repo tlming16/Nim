@@ -355,7 +355,10 @@ proc testNimInAction(r: var TResults, cat: Category, options: string) =
   for i, test in tests:
     let filename = testsDir / test.addFileExt("nim")
     let testHash = getMD5(readFile(filename).string)
-    doAssert testHash == refHashes[i], "Nim in Action test " & filename & " was changed: " & $(i: i, testHash: testHash, refHash: refHashes[i])
+    doAssert testHash == refHashes[i], "Nim in Action test " & filename & " was changed."
+
+
+
   # Run the tests.
   for testfile in tests:
     test "tests/" & testfile & ".nim"

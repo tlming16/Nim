@@ -1,5 +1,4 @@
 discard """
-  file: "tcastint.nim"
   output: "OK"
 """
 

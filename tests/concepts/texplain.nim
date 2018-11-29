@@ -60,8 +60,8 @@ texplain.nim(77, 5) NestedConcept: concept predicate failed
 
 expression: f(y)
 '''
-  line: 123
   errormsg: "type mismatch: got <MatchingType>"
+  line: 138
 """
 
 type
@@ -121,4 +121,3 @@ static:
 # finally, provide multiple nested explanations for failed matching
 # of regular concepts, even when the explain pragma is not used
 f(y)
-
