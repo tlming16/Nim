@@ -217,7 +217,7 @@ proc buildTools() =
   nimCompileFold("Compile nimgrep", "tools/nimgrep.nim", options = "-d:release")
   when defined(windows): buildVccTool()
   nimCompileFold("Compile nimpretty", "nimpretty/nimpretty.nim", options = "-d:release")
-  nimCompileFold("Compile nimfind", "tools/nimfind.nim", options = "-d:release")
+  # nimCompileFold("Compile nimfind", "tools/nimfind.nim", options = "-d:release")
 
 proc nsis(latest: bool; args: string) =
   bundleNimbleExe(latest)
