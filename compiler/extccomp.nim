@@ -63,8 +63,8 @@ compiler gcc:
   result = (
     name: "gcc",
     objExt: "o",
-    optSpeed: " -O3 -ffast-math ",
-    optSize: " -Os -ffast-math ",
+    optSpeed: " -O3 ",
+    optSize: " -Os ",
     compilerExe: "gcc",
     cppCompiler: "g++",
     compileTmpl: "-c $options $include -o $objfile $file",
