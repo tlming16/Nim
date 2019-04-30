@@ -162,7 +162,7 @@ proc callCompiler(cmdTemplate, filename, options: string,
   close(p)
   result.msg = ""
   result.file = ""
-  result.outp = ""
+  result.output = ""
   result.line = 0
   result.column = 0
   result.tfile = ""
@@ -194,7 +194,7 @@ proc callCCompiler(cmdTemplate, filename, options: string,
   result.nimout = ""
   result.msg = ""
   result.file = ""
-  result.outp = ""
+  result.output = ""
   result.line = -1
   while outp.readLine(x.TaintedString) or running(p):
     result.nimout.add(x & "\n")
