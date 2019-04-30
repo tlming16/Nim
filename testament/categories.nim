@@ -402,10 +402,10 @@ proc testStdlib(r: var TResults, pattern, options: string, cat: Category) =
   var files: seq[string]
 
   proc isValid(file: string): bool =
-    for dir in parentDirs(file, inclusive = false):
-      if dir.lastPathPart in ["includes", "nimcache"]:
-        # eg: lib/pure/includes/osenv.nim gives: Error: This is an include file for os.nim!
-        return false
+    # for dir in parentDirs(file, inclusive = false):
+      # if dir.lastPathPart in ["includes", "nimcache"]:
+        # # eg: lib/pure/includes/osenv.nim gives: Error: This is an include file for os.nim!
+        # return false
     let name = extractFilename(file)
     if name.splitFile.ext != ".nim": return false
     for namei in disabledFiles:
@@ -417,7 +417,7 @@ proc testStdlib(r: var TResults, pattern, options: string, cat: Category) =
     if isValid(testFile):
       files.add testFile
 
-  files.sort # reproducible order
+  files.sort(cmp) # reproducible order
   for testFile in files:
     let contents = readFile(testFile).string
     var testObj = makeTest(testFile, options, cat)
@@ -734,7 +734,7 @@ proc processCategory(r: var TResults, cat: Category, options, testsDir: string,
     var files: seq[string]
     for file in walkDirRec(testsDir &.? cat.string):
       if isTestFile(file): files.add file
-    files.sort # give reproducible order
+    files.sort(cmp) # give reproducible order
 
     for i, name in files:
       var test = makeTest(name, options, cat)
